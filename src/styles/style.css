@@ -1,0 +1,18 @@
+
+.userIcon {
+    background-image: url(../images/user.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+}
+
+.passwordIcon {
+    background-image: url(../images/password.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+}
