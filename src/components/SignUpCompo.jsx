@@ -17,6 +17,10 @@ const SignUpCompo = () => {
                 <input type="checkbox" name="Masculino" />
                 <input type="checkbox" name="femenino" />
             </div>
+            <div>
+                <input type="password" placeholder="Contraseña"/>
+                <input type="password" placeholder="Repetir contraseña"/>
+            </div>
         </div>
     )
 }

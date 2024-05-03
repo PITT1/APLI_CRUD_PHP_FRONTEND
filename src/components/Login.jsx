@@ -13,7 +13,7 @@ const Login = () => {
                 <input type="password" placeholder="Constraseña" className="px-5 bg-transparent outline-none text-2xl text-white"/>
             </div>
             <button className="py-3 px-2 rounded-full bg-orange-600 hover:bg-orange-500 transition-all text-white text-2xl mt-4">Ingresar</button>
-            <p className="text-white cursor-default">¿No tienes una cuenta? <a href="../pages/SignUp.astro" className="cursor-pointer text-xl border-b-2 border-transparent hover:border-orange-500 transition-all">¡REGISTRATE!</a></p>
+            <p className="text-white cursor-default">¿No tienes una cuenta? <a href="SignUp" className="cursor-pointer text-xl border-b-2 border-transparent hover:border-orange-500 transition-all">¡REGISTRATE!</a></p>
         </div>
     )
 }
