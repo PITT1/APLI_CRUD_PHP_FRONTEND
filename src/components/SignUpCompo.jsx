@@ -18,7 +18,7 @@ const SignUpCompo = () => {
                 <input type="checkbox" name="femenino" className="mb-3"/>
             </div>
             <div className="mb-6">
-                <input type="password" placeholder="Contraseña" className="bg-transparent border-b-2 outline-none text-white text-2xl mr-4 py-2 px-4"/>
+                <input for="male-selector" type="password" placeholder="Contraseña" className="bg-transparent border-b-2 outline-none text-white text-2xl mr-4 py-2 px-4"/>
                 <input type="password" placeholder="Repetir contraseña" className="bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
             </div>
             <div className="flex flex-col items-center">
