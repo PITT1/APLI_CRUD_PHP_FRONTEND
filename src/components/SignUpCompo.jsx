@@ -1,6 +1,24 @@
+import { useState } from "react";
 import "../styles/style.css";
 
 const SignUpCompo = () => {
+    const [isMale, setIsMale] = useState(false);
+    const [isFemale, setIsFemale] = useState(false);
+    
+    const changeGenderToMale = (event) => {
+        if (event.target.checked) {
+            setIsMale(true);
+            setIsFemale(false);
+        }
+    }
+
+    const changeGenderToFemale = (event) => {
+        if (event.target.checked) {
+            setIsFemale(true);
+            setIsMale(false);
+        }
+    }
+
     return(
         <div className="py-16 px-8 backdrop-blur-xl rounded-3xl flex flex-col items-center">
             <div className="mb-6 flex flex-col">
@@ -17,10 +35,16 @@ const SignUpCompo = () => {
                 <input type="text" placeholder="edad" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4 mb-6"/>
                 <div className="flex justify-between">
                     <label className="cyberpunk-checkbox-label">
-                        <input type="checkbox" className="cyberpunk-checkbox" />Masculino
+                        <input type="checkbox" 
+                               className="cyberpunk-checkbox"
+                               checked={isMale}
+                               onChange={changeGenderToMale} />Masculino
                     </label>
                     <label className="cyberpunk-checkbox-label">
-                        <input type="checkbox" className="cyberpunk-checkbox" />Femenino
+                        <input type="checkbox"
+                               className="cyberpunk-checkbox"
+                               checked={isFemale}
+                               onChange={changeGenderToFemale}/>Femenino
                     </label>
                 </div>
             </div>
