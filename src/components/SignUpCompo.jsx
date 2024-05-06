@@ -4,6 +4,23 @@ import "../styles/style.css";
 const SignUpCompo = () => {
     const [isMale, setIsMale] = useState(false);
     const [isFemale, setIsFemale] = useState(false);
+    const [name, setName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [userName, setUserName] = useState("");
+    const [yearsOlds, setYearsOlds] = useState("");
+    const [mail, setMail] = useState("");
+    const [gender, setGender] = useState("");
+    const [password, setPassword] = useState("");
+
+    body = {
+        "nombre": name,
+        "apellido": lastName,
+        "username": userName,
+        "edad": yearsOlds,
+        "correo": mail,
+        "sexo": gender,
+        "contraseña": password
+    }
     
     const changeGenderToMale = (event) => {
         if (event.target.checked) {
@@ -17,6 +34,12 @@ const SignUpCompo = () => {
             setIsFemale(true);
             setIsMale(false);
         }
+    }
+
+    const register = () => {
+        fetch("http://localhost/myapi/my-api.php")
+        .then(res => res.json())
+        .then(data => console.log(data.message))
     }
 
     return(
@@ -53,7 +76,7 @@ const SignUpCompo = () => {
                 <input type="password" placeholder="Repetir contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
             </div>
             <div className="flex flex-col items-center">
-                <button type="button" className="py-3 px-10 mb-6 rounded-full bg-orange-600 hover:bg-orange-500 transition-all text-white text-2xl ">Registrar</button>
+                <button onClick={register} type="button" className="py-3 px-10 mb-6 rounded-full bg-orange-600 hover:bg-orange-500 transition-all text-white text-2xl ">Registrar</button>
                 <p className="text-white">¿Ya tienes una cuenta? ir a</p>
                 <a href="/"><button type="button" className="py-3 px-10 rounded-full bg-orange-600 bg-orange hover:bg-orange-500 transition-all text-white text-2xl">Iniciar sesion</button></a>
                 
