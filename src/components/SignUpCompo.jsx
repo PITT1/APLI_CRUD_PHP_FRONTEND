@@ -26,6 +26,7 @@ const SignUpCompo = () => {
         if (event.target.checked) {
             setIsMale(true);
             setIsFemale(false);
+            setGender("M");
         }
     }
 
@@ -33,6 +34,7 @@ const SignUpCompo = () => {
         if (event.target.checked) {
             setIsFemale(true);
             setIsMale(false);
+            setGender("F");
         }
     }
 
@@ -88,7 +90,7 @@ const SignUpCompo = () => {
                 </div>
             </div>
             <div className="mb-6">
-                <input for="male-selector" type="password" placeholder="Contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl mr-4 py-2 px-4"/>
+                <input type="password" placeholder="Contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl mr-4 py-2 px-4"/>
                 <input type="password" placeholder="Repetir contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
             </div>
             <div className="flex flex-col items-center">
