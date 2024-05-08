@@ -13,7 +13,7 @@ const SignUpCompo = () => {
     const [password, setPassword] = useState("");
     const [passwordRepeat, setPasswordRepeat] = useState("");
 
-    dataJson = {
+    const dataJson = {
         "nombre": name,
         "apellido": lastName,
         "username": userName,
@@ -23,7 +23,7 @@ const SignUpCompo = () => {
         "contraseña": password
     }
 
-    configPOST = {
+    const configPOST = {
         "method": 'POST',
         "headers": {
             'Content-Type': 'application/json',
