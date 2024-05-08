@@ -5,8 +5,23 @@ const Login = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
+    const dataJson = {
+        "username": userName,
+        "contraseña": password
+    }
+
+    const configGET = {
+        "method": 'GET',
+        "headers": {
+            'Content-Type': 'application/json',
+        },
+        "body": JSON.stringify(dataJson),
+    }
+
     const sendForm = () => {
-        
+        fetch("http://localhost/myapi/my-api.php", configGET)
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
 
     return(
