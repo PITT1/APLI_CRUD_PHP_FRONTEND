@@ -11,8 +11,9 @@ const SignUpCompo = () => {
     const [mail, setMail] = useState("");
     const [gender, setGender] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordRepeat, setPasswordRepeat] = useState("");
 
-    body = {
+    dataJson = {
         "nombre": name,
         "apellido": lastName,
         "username": userName,
@@ -20,6 +21,14 @@ const SignUpCompo = () => {
         "correo": mail,
         "sexo": gender,
         "contraseña": password
+    }
+
+    configPOST = {
+        "method": 'POST',
+        "headers": {
+            'Content-Type': 'application/json',
+        },
+        "body": JSON.stringify(dataJson),
     }
     
     const changeGenderToMale = (event) => {
@@ -39,9 +48,13 @@ const SignUpCompo = () => {
     }
 
     const register = () => {
-        fetch("http://localhost/myapi/my-api.php")
-        .then(res => res.json())
-        .then(data => console.log(data.message))
+        if (password === passwordRepeat) {
+            fetch("http://localhost/myapi/my-api.php", configPOST)
+            .then(res => res.json())
+            .then(data => console.log(data.message))   
+        } else {
+            console.log("las contraseñas no son iguales");
+        }
     }
 
     return(
@@ -59,13 +72,17 @@ const SignUpCompo = () => {
                        className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
             </div>
             <div className="mb-6">
-                <input type="text" placeholder="Nombre de usuario" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
+                <input type="text"
+                       placeholder="Nombre de usuario"
+                       value={userName} 
+                       onChange={event => setUserName(event.target.value)} 
+                       className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
             </div>
             <div className="mb-6">
                 <input type="email" 
                        placeholder="Correo electronico" 
-                       value={userName}
-                       onChange={event => setUserName(event.target.value)}
+                       value={mail}
+                       onChange={event => setMail(event.target.value)}
                        className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
             </div>
             <div className="mb-6 flex flex-col">
@@ -85,13 +102,13 @@ const SignUpCompo = () => {
                         <input type="checkbox"
                                className="cyberpunk-checkbox"
                                checked={isFemale}
-                               onChange={changeGenderToFemale}/>Femenino
+                               onChnange={changeGenderToFemale}/>Femenino
                     </label>
                 </div>
             </div>
             <div className="mb-6">
-                <input type="password" placeholder="Contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl mr-4 py-2 px-4"/>
-                <input type="password" placeholder="Repetir contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
+                <input type="password" value={password} onChange={event => setPassword(event.target.value)} placeholder="Contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl mr-4 py-2 px-4"/>
+                <input type="password" value={passwordRepeat} onChange={event => setPasswordRepeat(event.target.value)} placeholder="Repetir contraseña" className="placeholder:text-slate-300 bg-transparent border-b-2 outline-none text-white text-2xl py-2 px-4"/>
             </div>
             <div className="flex flex-col items-center">
                 <button onClick={register} type="button" className="py-3 px-10 mb-6 rounded-full bg-orange-600 hover:bg-orange-500 transition-all text-white text-2xl ">Registrar</button>
