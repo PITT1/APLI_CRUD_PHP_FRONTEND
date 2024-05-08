@@ -102,7 +102,7 @@ const SignUpCompo = () => {
                         <input type="checkbox"
                                className="cyberpunk-checkbox"
                                checked={isFemale}
-                               onChnange={changeGenderToFemale}/>Femenino
+                               onChange={changeGenderToFemale}/>Femenino
                     </label>
                 </div>
             </div>
