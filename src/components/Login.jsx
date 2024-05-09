@@ -10,8 +10,8 @@ const Login = () => {
         "contraseña": password
     }
 
-    const configPUT = { /*ESTO ES UN ERROR PERO FUNCIONA, DEBE HABER UN METODO POST EN VEZ DE UN PUT PARA EL LOGIN*/
-        "method": 'PUT',
+    const configPOST = { /*ESTO ES UN ERROR PERO FUNCIONA, DEBE HABER UN METODO POST EN VEZ DE UN PUT PARA EL LOGIN*/
+        "method": 'POST',
         "headers": {
             'Content-Type': 'application/json',
         },
@@ -19,7 +19,7 @@ const Login = () => {
     }
 
     const sendForm = () => {
-        fetch("http://localhost/myapi/my-api.php", configPUT)
+        fetch("http://localhost/myapi/my-api.php?action=signin", configPOST)
         .then(res => res.json())
         .then(data => console.log(data))
     }

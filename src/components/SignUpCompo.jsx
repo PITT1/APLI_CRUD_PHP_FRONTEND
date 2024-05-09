@@ -49,7 +49,7 @@ const SignUpCompo = () => {
 
     const register = () => {
         if (password === passwordRepeat) {
-            fetch("http://localhost/myapi/my-api.php", configPOST)
+            fetch("http://localhost/myapi/my-api.php?action=register", configPOST)
             .then(res => res.json())
             .then(data => console.log(data.message))   
         } else {
