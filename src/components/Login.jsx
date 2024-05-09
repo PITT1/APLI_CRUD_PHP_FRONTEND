@@ -10,8 +10,8 @@ const Login = () => {
         "contraseña": password
     }
 
-    const configGET = {
-        "method": 'GET',
+    const configPUT = {
+        "method": 'PUT',
         "headers": {
             'Content-Type': 'application/json',
         },
@@ -19,7 +19,7 @@ const Login = () => {
     }
 
     const sendForm = () => {
-        fetch("http://localhost/myapi/my-api.php", configGET)
+        fetch("http://localhost/myapi/my-api.php", configPUT)
         .then(res => res.json())
         .then(data => console.log(data))
     }
