@@ -10,7 +10,7 @@ const Login = () => {
         "contraseña": password
     }
 
-    const configPUT = {
+    const configPUT = { /*ESTO ES UN ERROR PERO FUNCIONA, DEBE HABER UN METODO POST EN VEZ DE UN PUT PARA EL LOGIN*/
         "method": 'PUT',
         "headers": {
             'Content-Type': 'application/json',
