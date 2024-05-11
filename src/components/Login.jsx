@@ -21,7 +21,11 @@ const Login = () => {
     const sendForm = () => {
         fetch("http://localhost/myapi/my-api.php?action=signin", configPOST)
         .then(res => res.json())
-        .then(data => console.log(data.message))
+        .then(data => {
+            if (data.message === "ok") {
+                window.location.href = `http://localhost:4321/dashboard?user=${userName}`;
+            }
+        })
     }
 
     return(
