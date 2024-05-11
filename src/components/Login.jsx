@@ -10,7 +10,7 @@ const Login = () => {
         "contraseña": password
     }
 
-    const configPOST = { /*ESTO ES UN ERROR PERO FUNCIONA, DEBE HABER UN METODO POST EN VEZ DE UN PUT PARA EL LOGIN*/
+    const configPOST = {
         "method": 'POST',
         "headers": {
             'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const Login = () => {
     const sendForm = () => {
         fetch("http://localhost/myapi/my-api.php?action=signin", configPOST)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => console.log(data.message))
     }
 
     return(
