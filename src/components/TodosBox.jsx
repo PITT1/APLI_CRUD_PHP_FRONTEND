@@ -1,22 +1,26 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 
 const TodoBox = () => {
+  const [todoList, setTodoList] = useState("");
 
-    useEffect(() => {
-        const urlString = window.location.href;
-        const url = new URL(urlString);
-        const user = url.searchParams.get("user");
-        fetch(`http://localhost/myapi/my-api.php/user/todos/${user}`)
-        .then(res => res.json())
-        .then(todos => console.log(todos))
-    },[]);
+  useEffect(() => {
+    const urlString = window.location.href;
+    const url = new URL(urlString);
+    const user = url.searchParams.get("user");
 
-    return(
-        <section>
-            <h1>tareas</h1>
-        </section>
-    )
-}
+    fetch(`http://localhost/myapi/my-api.php/todos/${user}`)
+      .then(res => res.json())
+      .then(todos => console.log(todos));
+  }, []);
+
+  return (
+    <section>
+      <h1>
+        {}
+      </h1>
+    </section>
+  );
+};
 
 export default TodoBox;
