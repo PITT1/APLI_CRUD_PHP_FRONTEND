@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 
 const TodoBox = () => {
-  const [todoList, setTodoList] = useState("");
+  const [todoList, setTodoList] = useState([]);
 
   useEffect(() => {
     const urlString = window.location.href;
@@ -11,14 +11,14 @@ const TodoBox = () => {
 
     fetch(`http://localhost/myapi/my-api.php/todos/${user}`)
       .then(res => res.json())
-      .then(todos => console.log(todos));
+      .then(todos => {
+        setTodoList(todos.map(tareas => tareas.contenido));
+      });
   }, []);
 
   return (
     <section>
-      <h1>
-        {}
-      </h1>
+      {todoList.map((tarea, index) => <li key={index} className="text-white">{tarea}</li>)}
     </section>
   );
 };
