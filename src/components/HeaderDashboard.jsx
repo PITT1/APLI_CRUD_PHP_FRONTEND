@@ -7,8 +7,12 @@ const HeaderDashboard = () => {
       const urlString = window.location.href;
       const url = new URL(urlString);
       const user = url.searchParams.get("user");
-
-      setUserName(user || '');
+      fetch(`http://localhost/myapi/my-api.php/user/${user}`)
+      .then(res => res.json())
+      .then(data => {
+        const yourName = `sr ${data.nombre} ${data.apellido}`;
+        setUserName(yourName);
+      })
     }, []);
 
 
