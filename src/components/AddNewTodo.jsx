@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddNewTodo = () => {
+const AddNewTodo = ({ onUpdate }) => {
     const [isClicked, setIsClicked] = useState(false);
     const [todo, setTodo] = useState("");
 
@@ -31,7 +31,9 @@ const AddNewTodo = () => {
         fetch(`http://localhost/myapi/my-api.php?action=addtodo&user=${user}`, configPOST)
         .then(res => res.json())
         .then(data => console.log(data))
-        location.reload();
+
+        onUpdate();
+        setTimeout(onUpdate, 50);
     }
 
     return(

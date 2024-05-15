@@ -4,6 +4,11 @@ import AddNewTodo from "./AddNewTodo";
 
 const TodoBox = () => {
   const [todoList, setTodoList] = useState([]);
+  const [update, setUpdate] = useState(1);
+
+  const isUpdate = () => {
+    setUpdate(prev => prev + 1);
+  }
 
   useEffect(() => {
     const urlString = window.location.href;
@@ -15,7 +20,7 @@ const TodoBox = () => {
       .then((todos) => {
         setTodoList(todos.map((tareas) => tareas.contenido));
       });
-  }, []);
+  }, [update]);
 
   return (
     <>
@@ -30,7 +35,7 @@ const TodoBox = () => {
           </li>
         ))}
       </ul>
-      <AddNewTodo/>
+      <AddNewTodo onUpdate={isUpdate}/>
     </>
   );
 };
