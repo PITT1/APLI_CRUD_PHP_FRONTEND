@@ -31,6 +31,7 @@ const AddNewTodo = () => {
         fetch(`http://localhost/myapi/my-api.php?action=addtodo&user=${user}`, configPOST)
         .then(res => res.json())
         .then(data => console.log(data))
+        location.reload();
     }
 
     return(
