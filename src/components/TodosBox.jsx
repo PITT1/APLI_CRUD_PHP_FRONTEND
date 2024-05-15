@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import AddNewTodo from "./AddNewTodo";
 
 
 const TodoBox = () => {
@@ -23,12 +24,13 @@ const TodoBox = () => {
         {todoList.map((tarea, index) => (
           <li
             key={index}
-            className="text-slate-800 font-semibold text-2xl py-4 px-4 my-2 bg-slate-400 rounded-full cursor-default"
+            className="text-slate-800 font-semibold text-2xl py-4 px-9 my-2 bg-slate-400 rounded-full cursor-default"
           >
             {tarea}
           </li>
         ))}
       </ul>
+      <AddNewTodo/>
     </>
   );
 };
