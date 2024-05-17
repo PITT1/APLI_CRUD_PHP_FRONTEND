@@ -1,5 +1,5 @@
 
-const DeleteTodo = ({ keyIndex }) => {
+const DeleteTodo = ({ keyIndex, onUpdate }) => {
 
     const handleClick = () => {
         const urlString = window.location.href;
@@ -26,6 +26,9 @@ const DeleteTodo = ({ keyIndex }) => {
           .catch((error) => {
             console.error("Hubo un problema con la petición:", error);
           });
+
+          onUpdate();
+          setTimeout(onUpdate, 50);
     }
 
     return(

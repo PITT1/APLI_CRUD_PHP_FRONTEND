@@ -30,11 +30,11 @@ const AddNewTodo = ({ onUpdate }) => {
         const user = url.searchParams.get("user");
         fetch(`http://localhost/myapi/my-api.php?action=addtodo&user=${user}`, configPOST)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => console.log(data.message))
         setTodo("");
 
         onUpdate();
-        setTimeout(onUpdate, 50);
+        setTimeout(onUpdate, 100);
     }
 
     return(
