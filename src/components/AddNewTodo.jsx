@@ -31,6 +31,7 @@ const AddNewTodo = ({ onUpdate }) => {
         fetch(`http://localhost/myapi/my-api.php?action=addtodo&user=${user}`, configPOST)
         .then(res => res.json())
         .then(data => console.log(data))
+        setTodo("");
 
         onUpdate();
         setTimeout(onUpdate, 50);

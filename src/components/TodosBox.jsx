@@ -24,14 +24,16 @@ const TodoBox = () => {
 
   return (
     <>
-    <h1 className="text-white text-center text-2xl font-medium">Tu lista de tareas</h1>
+    <div className="flex justify-center">
+      <h1 className="text-white text-center bg-slate-700 cursor-default w-2/5 rounded-b-full text-2xl font-medium">Tu lista de tareas</h1>
+    </div>
       <ul className="flex flex-col items-center">
         {todoList.map((tarea, index) => (
           <li
             key={index}
-            className="text-slate-800 font-semibold text-2xl py-4 px-9 my-2 bg-slate-400 rounded-full cursor-default"
+            className="text-slate-800 font-semibold text-2xl pl-8 my-2 bg-slate-500 rounded-full cursor-default hover:scale-110 transition-all hover:bg-slate-100"
           >
-            {tarea}
+            {tarea}<button type="button" className="bg-transparent text-slate-500 ml-5 h-12 w-12 rounded-r-full hover:bg-red-700 hover:text-slate-300 transition-colors">X</button>
           </li>
         ))}
       </ul>
