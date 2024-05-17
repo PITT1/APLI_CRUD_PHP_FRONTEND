@@ -34,7 +34,7 @@ const TodoBox = () => {
             key={index}
             className="text-slate-800 font-semibold text-2xl pl-8 my-2 bg-slate-500 rounded-full cursor-default hover:scale-110 transition-all hover:bg-slate-100"
           >
-            {tarea}<DeleteTodo/>
+            {tarea}<DeleteTodo keyIndex={index}/>
           </li>
         ))}
       </ul>
