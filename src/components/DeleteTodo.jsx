@@ -7,15 +7,25 @@ const DeleteTodo = ({ keyIndex }) => {
         const user = url.searchParams.get("user");
 
         const optionDelete = {
-            method: 'DELETE',
-            headers: {
-              'Content-Type': 'application/json'
+            "method": 'POST',
+            "headers": {
+                'Content-Type': 'application/json',
             }
-          };
+        }
 
         fetch(`http://localhost/myapi/my-api.php?user=${user}&action=deletetodo&key=${keyIndex}`, optionDelete)
-        .then(res => res.json())
-        .then(data => console.log(data))
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data.message);
+          })
+          .catch((error) => {
+            console.error("Hubo un problema con la petición:", error);
+          });
     }
 
     return(
