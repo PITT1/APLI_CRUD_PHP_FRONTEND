@@ -43,7 +43,7 @@ const TodoBox = () => {
       <ul className="flex flex-col items-center">
         {todoList.map((tarea, index) => (
           <div className="flex">
-            {tarea.listo && <div className="text-white h-8 rounded-full px-8 bg-green-600 text-2xl">✔</div>}
+            {tarea.listo && <div className="text-white h-8 px-2 rounded-full bg-green-600 text-2xl">✔</div>}
             <li
               key={index}
               className="text-slate-800 font-semibold text-2xl pl-8 my-2 bg-slate-500 rounded-full cursor-pointer hover:scale-110 transition-all hover:bg-slate-100"
