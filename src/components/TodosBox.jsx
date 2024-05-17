@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AddNewTodo from "./AddNewTodo";
+import DeleteTodo from "./DeleteTodo";
 
 
 const TodoBox = () => {
@@ -33,7 +34,7 @@ const TodoBox = () => {
             key={index}
             className="text-slate-800 font-semibold text-2xl pl-8 my-2 bg-slate-500 rounded-full cursor-default hover:scale-110 transition-all hover:bg-slate-100"
           >
-            {tarea}<button type="button" className="bg-transparent text-slate-500 ml-5 h-12 w-12 rounded-r-full hover:bg-red-700 hover:text-slate-300 transition-colors">X</button>
+            {tarea}<DeleteTodo/>
           </li>
         ))}
       </ul>
