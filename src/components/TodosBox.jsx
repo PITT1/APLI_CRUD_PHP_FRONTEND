@@ -14,6 +14,13 @@ const TodoBox = () => {
     let updatedTodoList = [...todoList];
     updatedTodoList[taskIndex].listo =!updatedTodoList[taskIndex].listo;
     setTodoList(updatedTodoList);
+    const urlString = window.location.href;
+    const url = new URL(urlString);
+    const user = url.searchParams.get("user");
+    const urlindex = taskIndex - 1;
+    fetch(`http://localhost/myapi/my-api.php?action=putlisto&taskindex=${urlindex}&user=${user}`, {"method":'PUT'})
+    .then(res => res.json())
+    .then(data => console.log(data.message))
   };
 
   useEffect(() => {
@@ -26,7 +33,7 @@ const TodoBox = () => {
    .then((todos) => {
         const initialTodos = todos.map(tarea => ({
          ...tarea,
-          listo: tarea.listo === 'true'
+          listo: tarea.listo === 'hecho'
         }));
         
         setTodoList(initialTodos);
@@ -37,10 +44,10 @@ const TodoBox = () => {
     <>
       <div className="flex justify-center">
         <h1 className="text-white text-center bg-slate-700 cursor-default w-2/5 rounded-b-full text-2xl font-medium">
-          Tu lista de tareas
+          Tus publicaciones
         </h1>
       </div>
-      <ul className="flex flex-col items-center">
+      <ul className="flex flex-col items-center transition-all">
         {todoList.map((tarea, index) => (
           <div className="flex">
             {tarea.listo && <div className="text-white z-10 h-8 px-2 rounded-full bg-green-600 text-2xl">✔</div>}
