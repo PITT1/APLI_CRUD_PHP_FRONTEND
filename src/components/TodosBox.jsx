@@ -14,10 +14,12 @@ const TodoBox = () => {
     let updatedTodoList = [...todoList];
     updatedTodoList[taskIndex].listo =!updatedTodoList[taskIndex].listo;
     setTodoList(updatedTodoList);
+
     const urlString = window.location.href;
     const url = new URL(urlString);
     const user = url.searchParams.get("user");
-    const urlindex = taskIndex - 1;
+    const urlindex = taskIndex;
+    
     fetch(`http://localhost/myapi/my-api.php?action=putlisto&taskindex=${urlindex}&user=${user}`, {"method":'PUT'})
     .then(res => res.json())
     .then(data => console.log(data.message))
